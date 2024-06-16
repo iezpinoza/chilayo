@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package users;
+
+service UsersService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse) {}
+  rpc FindOneUser (FindOneUserRequest) returns (FindOneUserResponse) {}
+
+}
+
+message CreateUserRequest {
+  int32 firstName = 1;
+  int32 lastName = 2;
+  int32 role = 3;
+}
+
+message CreateUserResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 id = 3;
+}
+
+message FindOneUserRequest {
+  int32 idUser = 1;
+}
+
+message FindOneUserResponse {
+  int32 status = 1;
+  repeated string error = 2;
+  int32 id = 3;
+}
